@@ -19,7 +19,7 @@ const personalInfo = [
 
 function PersonalInfo() {
     return (
-        <div className="grid">
+        <div className="grid lg:translate-x-6 xl:translate-x-10">
             {personalInfo.map((item) => (
                 <div
                     key={item.label}

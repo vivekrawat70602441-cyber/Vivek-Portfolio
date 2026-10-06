@@ -16,7 +16,7 @@ function About() {
                 />
 
                 <SectionReveal>
-                    <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+                    <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
                         <AboutCard />
                         <PersonalInfo />
                     </div>
