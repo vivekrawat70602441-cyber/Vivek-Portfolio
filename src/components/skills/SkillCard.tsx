@@ -1,15 +1,5 @@
 import { motion } from "motion/react";
-import {
-    SiExpress,
-    SiGithub,
-    SiJavascript,
-    SiMongodb,
-    SiNextdotjs,
-    SiNodedotjs,
-    SiReact,
-    SiTailwindcss,
-    SiTypescript,
-} from "@icons-pack/react-simple-icons";
+import { SiExpress, SiGithub, SiJavascript, SiMongodb, SiNextdotjs, SiNodedotjs, SiReact, SiTailwindcss, SiTypescript } from "@icons-pack/react-simple-icons";
 import type { Skill } from "../../types/skill";
 
 interface SkillCardProps {
