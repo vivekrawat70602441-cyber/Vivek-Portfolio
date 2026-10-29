@@ -19,4 +19,22 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/vivekrawat70602441-cyber/TechStore-Ecommerce.git",
         featured: true,
     },
+    {
+        id: 2,
+        title: "ChatApp",
+        description: "Developed a real-time chat application using Socket.IO with user authentication, a people list, and a conversation interface.",
+        image: "/images/projects/chatapp.png",
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "TailwindCSS",
+            "MySQL",
+            "Prisma ORM",
+            "Socket.IO",
+        ],
+        category: "Full Stack",
+        liveUrl: "https://chat-website-w39o.onrender.com/",
+        githubUrl: "https://github.com/vivekrawat70602441-cyber/Chat-Website",
+        featured: true,
+    },
 ];
