@@ -45,7 +45,7 @@ function Projects() {
                           initial="hidden"
                           whileInView="visible"
                           viewport={{ once: true, amount: 0.15 }}
-                          className="grid gap-6 lg:grid-cols-2"
+                          className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3"
                         >
                             {filteredProjects.map((project) => (
                                 <ProjectCard key={project.id} project={project} />
@@ -53,7 +53,7 @@ function Projects() {
                         </motion.div>
                     </SectionReveal>
                 ) : (
-                    <div className="rounded-2xl border border-white/10 bg-white/3">
+                    <div className="rounded-2xl border border-white/10 bg-white/3 p-8 text-center">
                         <p className="text-slate-400">
                             No projects available in this category yet.
                         </p>

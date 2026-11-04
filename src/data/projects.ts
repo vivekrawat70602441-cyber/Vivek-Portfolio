@@ -37,4 +37,21 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/vivekrawat70602441-cyber/Chat-Website",
         featured: true,
     },
+    {
+        id: 3,
+        title: "Personal Portfolio",
+        description: "Designed and developed a responsive personal portfolio to showcase my technical skills, projects, and development journey, featuring smooth animations, interactive sections,and a resume download option.",
+        image: "/images/projects/portfolio.png",
+        technologies: [
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Vite",
+            "Motion",
+        ],
+        category: "Frontend",
+        liveUrl: "https://vivek-portfolio-two-virid.vercel.app/",
+        githubUrl: "https://github.com/vivekrawat70602441-cyber/Vivek-Portfolio",
+        featured: true,
+    }
 ];

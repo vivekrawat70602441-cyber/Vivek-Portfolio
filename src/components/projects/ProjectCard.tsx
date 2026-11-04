@@ -30,75 +30,74 @@ function ProjectCard({ project }: ProjectCardProps) {
           duration: 0.2,
         },
       }}
-      className="group overflow-hidden rounded-2xl border border-white/10 bg-white/3  transition-colors hover:border-purple-400/30"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b1220] transition-colors duration-300 hover:border-purple-400/40"
     >
 
-      <div className="relative aspect-8/5 overflow-hidden bg-[#101820]">
-        <div className="absolute inset-0 flex flex-col justify-between p-5 sm:p-7">
-          <span className="text-xs font-semibold uppercase tracking-[0.2rem] text-purple-300">{project.category} / Project</span>
-          <div>
-            <p className="text-2xl font-bold text-white sm:text-4xl">{project.title}</p>
-            <p className="mt-2 text-sm text-slate-400">Product experience · {project.technologies.slice(0, 2).join(" · ")}</p>
-          </div>
-        </div>
+      <div className="relative h-56 overflow-hidden bg-[#101820] sm:h-64">
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} project preview`}
+          loading="lazy"
+          decoding="async"
           onError={(event) => {
             event.currentTarget.style.display = "none";
           }}
-          className="relative h-full w-full object-contain"
+          className="h-full w-full object-contain"
         />
 
-        <div className="absolute left-4 top-4 rounded-full border border-purple-400/20 bg-[#050b14]/80 px-3 py-1 text-xs font-semibold text-purple-300 backdrop-blur-sm">
+        {/* Image overlay */}
+        <div className="absolute inset-0 bg-linear-to-t from-[#0509114]/80 via-transparent to-[#050914]/20" />
+
+        <div className="absolute left-4 top-4 rounded-full border border-purple-400/20 bg-[#050b14]/80 px-3 py-1 text-xs font-semibold text-purple-300 backdrop-blur-md">
           {project.category}
         </div>
+
+        {project.featured && (
+          <div className="absolute right-4 top-4 rounded-full border border-white/15 bg-[#050b14]/80 px-3 py-1 text-sx font-medium text-white backdrop-blur-md">
+            Featured
+          </div>
+        )}
       </div>
 
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="text-xl font-bold text-white">{project.title}</h3>
-
-          {project.featured && (
-            <span className="shrink-0 text-xs font-medium text-purple-400">
-              Featured
-            </span>
-          )}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div>
+          <h3 className="text-xl font-bold text-white transition-colors group-hover:text-purple-300">{project.title}</h3>
+          <p className="mt-3 text-sm leading-6 text-slate-400">{project.description}</p>
         </div>
 
-        <p className="mt-3 text-sm leading-6 text-slate-400">{project.description}</p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-5 flex flex-wrap content-start gap-2">
           {project.technologies.map((technology) => (
             <span
               key={technology}
-              className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300"
+              className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300 transition-colors hover:border-purple-400/30 hover:text-purple-300"
             >
               {technology}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 flex gap-3">
+        <div className="mt-auto flex gap-3 pt-7">
 
           <motion.a
             href={project.liveUrl}
+            target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2 }}
-            className="rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500"
+            className="flex-1 rounded-lg bg-purple-600 px-3 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-purple-500"
           >
             Live Demo
           </motion.a>
 
           <motion.a
             href={project.githubUrl}
+            target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2 }}
-            className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-200 transition-colors hover:border-purple-400/30 hover:text-white"
+            className="flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-center text-sm font-semibold text-slate-200 transition-colors hover:border-purple-400/40 hover:text-white"
           >
             GitHub
           </motion.a>

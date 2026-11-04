@@ -14,7 +14,7 @@ function ProjectFilter({
     onFilterChange,
 }: ProjectFilterProps) {
     return (
-        <div className="mb-10">
+        <div className="mb-10 flex flex-wrap gap-3">
             {filters.map((filter) => {
                 const isActive = activeFilter === filter;
 
@@ -23,9 +23,9 @@ function ProjectFilter({
                         key={filter}
                         type="button"
                         onClick={() => onFilterChange(filter)}
-                        className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${isActive
-                                ? "bg-purple-600 text-white"
-                                : "border border-white/10 bg-white/5 text-slate-400 hover:border-purple-400/30 hover:text-white"
+                        className={`rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-300 ${isActive
+                                ? "border border-purple-500 bg-purple-600 text-white shadow-purple-600/20"
+                                : "border border-white/10 bg-white/5 text-slate-400 hover:border-purple-400/40 hover:bg-purple-500/10 hover:text-white"
                             }`}
                     >
                         {filter}
