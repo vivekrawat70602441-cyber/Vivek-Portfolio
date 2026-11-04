@@ -41,6 +41,7 @@ function Projects() {
                 {filteredProjects.length > 0 ? (
                     <SectionReveal>
                         <motion.div 
+                          key={activeFilter}
                           variants={projectContainerVariants}
                           initial="hidden"
                           whileInView="visible"
