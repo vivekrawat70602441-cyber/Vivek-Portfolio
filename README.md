@@ -91,7 +91,7 @@ Vivek-Portfolio/
 
 🎨 Final Page Architecture
 
-Visual flow exactly ye hoga:
+Visual flow follow
 
 ┌─────────────────────────────────────┐
 │              NAVBAR                 │
