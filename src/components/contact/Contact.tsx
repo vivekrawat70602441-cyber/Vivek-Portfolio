@@ -15,6 +15,15 @@ function Contact() {
                 />
 
                 <SectionReveal>
+                    <div className="mb-12 overflow-hidden rounded-2xl border border-white/10">
+                        <img
+                            src="/images/contact/minimal-workspace.jpg"
+                            alt="Minimal developer workspace"
+                            loading="lazy"
+                            className="aspect-16/7 w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+                        />
+                    </div>
+
                     <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
                         <ContactInfo />
                         <ContactForm />

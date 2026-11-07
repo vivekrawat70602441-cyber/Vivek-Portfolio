@@ -165,15 +165,12 @@ function Hero() {
                         className="flex justify-center lg:justify-end"
                     >
                         <div className="relative w-full max-w-sm sm:max-w-md">
-                            <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-[#101820] shadow-2xl shadow-black/30">
+                            <div className="relative aspect-square w-full max-w-104 overflow-hidden rounded-full bg-[#bcc1d0] shadow-2xl shadow-black/30">
                                 <img
-                                    src="/images/profile/profile.webp"
+                                    src="/images/profile/profile.png"
                                     alt="Vivek Singh"
-                                    onError={(event) => {
-                                        event.currentTarget.style.display = "none";
-                                    }}
                                     fetchPriority="high"
-                                    className="relative h-full w-full object-contain"
+                                    className="relative h-full w-full object-contain object-center"
                                 />
                             </div>
                         </div>

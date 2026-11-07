@@ -16,7 +16,7 @@ function ContactInfo() {
 
             <div className="mt-8 space-y-5">
                 <a
-                    href="mailto:your-email@example.com"
+                    href="mailto:vivekrawat70602441@gmail.com"
                     className="group flex items-center gap-4"
                 >
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-purple-400 transition-colors group-hover:border-purple-400/30">

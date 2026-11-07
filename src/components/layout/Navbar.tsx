@@ -41,26 +41,26 @@ function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="sticky top-0 z-50 border-b border-white/10 bg-[#050b14]/90 backdrop-blur-md"
+            className="sticky top-0 z-50 border-b border-purple-500/20 bg-[#050b14]/90 backdrop-blur-xl"
         >
-            <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <nav className="relative mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
                 <a
                     href="#home"
                     onClick={closeMenu}
-                    className="text-xl font-bold tracking-tight text-white"
+                    className="text-2xl font-bold tracking-tight text-white"
                 >
                     Vivek<span className="text-purple-400">.</span>
                 </a>
 
-                <div className="hidden items-center gap-8 md:flex">
+                <div className="hidden items-center gap-2 md:flex">
                     {navLinks.map((link) => (
                         <motion.a
                             key={link.name}
                             href={link.href}
                             whileHover={{ y: -2 }}
                             transition={{ duration: 0.2 }}
-                            className="text-sm font-medium text-slate-300 transition-colors hover:text-purple-400"
+                            className="rounded-full px-5 py-3 text-sm font-medium text-slate-300 transition-all duration-300 hover:bg-purple-500/15 hover:text-purple-300"
                         >
                             {link.name}
                         </motion.a>
@@ -70,12 +70,11 @@ function Navbar() {
                         href="/resume/Vivek-Singh-Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.03 }}
+                        whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.97 }}
-                        transition={{ duration: 0.2 }}
-                        className="rounded-lg border border-purple-400/40 px-4 py-2 text-sm font-semibold text-purple-300 transition-colors hover:border-purple-400 hover:bg-purple-400/10"
+                        className="ml-5 rounded-full border border-purple-500/60 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/15 hover:shadow-[0_0_20px_rgba(168,85,247,0.25)]"
                     >
-                        Resume
+                        ↓ &nbsp; Resume
                     </motion.a>
                 </div>
 
@@ -84,15 +83,14 @@ function Navbar() {
                     aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                     aria-expanded={isMenuOpen}
                     onClick={() => setIsMenuOpen((prev) => !prev)}
-                    className="rounded-lg border border-white/10 p-2 text-slate-200 transition-colors hover:border-purple-400/40 hover:text-purple-400 md:hidden"
+                    className="flex h-12 w-12 items-center justify-center rounded-xl border border-purple-500/50 bg-purple-500/5 text-white shadow-[0_0_15px_rgba(168,85,247,0.12)] transition-all duration-300 hover:bg-purple-500/15 hover:shadow-[0_0_20px_rgba(168,85,247,0.25)] md:hidden"
                 >
                     {isMenuOpen ? (
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
                             viewBox="0 0 24 24"
-                            strokeWidth={1.8}
+                            fill="none"
                             stroke="currentColor"
+                            strokeWidth={1.8}
                             className="h-6 w-6"
                         >
                             <path
@@ -103,11 +101,10 @@ function Navbar() {
                         </svg>
                     ) : (
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
                             viewBox="0 0 24 24"
-                            strokeWidth={1.8}
+                            fill="none"
                             stroke="currentColor"
+                            strokeWidth={1.8}
                             className="h-6 w-6"
                         >
                             <path
@@ -118,42 +115,63 @@ function Navbar() {
                         </svg>
                     )}
                 </button>
-            </nav>
 
-            <AnimatePresence onExitComplete={handleMenuExitComplete}>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.25, ease: "easeOut" }}
-                        className="border-t border-white/10 bg-[#050b14] md:hidden"
-                    >
-                        <div className="mx-auto flex max-w-7xl flex-col px-4 py-4 sm:px-6">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={(event) => handleMobileNavClick(event, link.href)}
-                                    className="border-b border-white/5 py-4 text-sm font-medium text-slate-300 transition-colors hover:text-purple-400"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
+                <AnimatePresence onExitComplete={handleMenuExitComplete}>
+                    {isMenuOpen && (
+                        <motion.div
+                            id="mobile-navgation"
+                            initial={{ opacity: 0, y: -10, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -10, scale: 0.97 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                            className="absolute right-4 top-[calc(100%+12px)] w-[min(320px, calc(100vw-2rem))] origin-top-right overflow-hidden rounded-2xl border border-purple-500/40 bg-[#080d1c]/95 p-4 shadow-[0_10px_50px_rgba(0,0,0,0.5),0_0_25px_rgba(124,58237,0.12)] backdrop-blur-2xl sm:right-6 md:hidden"
+                        >
+                            <nav className="flex flex-col gap-1">
+                                {navLinks.map((link, index) => (
+                                    <motion.a
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={(event) => handleMobileNavClick(event, link.href)}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            duration: 0.2,
+                                            delay: index * 0.04,
+                                        }}
+                                        className="rounded-xl border-l-[3px] border-transparent px-5 py-3.5 text-sm font-medium text-slate-200 transition-all duration-300 hover:border-purple-500 hover:bg-purple-500/10 hover:text-purple-400"
+                                    >
+                                        {link.name}
+                                    </motion.a>
+                                ))}
+                            </nav>
 
+                            <div className="my-3 border-t border-white/10" />
                             <a
                                 href="/resume/Vivek-Singh-Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={closeMenu}
-                                className="mt-4 rounded-lg border border-purple-400/40 px-4 py-3 text-center text-sm font-semibold text-purple-300 transition-colors hover:border-purple-400 hover:bg-purple-400/10"
+                                className="flex w-full items-center justify-center gap-3 rounded-full bg-linear-to-r from-purple-500 to-indigo-600 px-5 py-3.5 text-sm font-semibold text-white shadow-purple-500/20 transition-all duration-300 hover:shadow-purple-500/40"
                             >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.8"
+                                    className="h-5 w-5"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"
+                                    />
+                                </svg>
                                 View Resume
                             </a>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </nav>
         </motion.header>
     );
 }

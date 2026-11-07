@@ -30,31 +30,46 @@ function Education() {
                                 </h3>
                             </div>
 
-                            <div className="space-y-6">
-                                {education.map((item) => (
-                                    <div
-                                        key={item.id}
-                                        className="relative border-l border-white/10 pl-8"
-                                    >
+                            {education.map((item) => (
+                                <div key={item.id}>
+                                    <div className="group relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-[#101820]">
+                                        <img
+                                            src="/images/education/gehu-campus.webp"
+                                            alt="Graphic Era Hill University Campus"
+                                            className="aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                            loading="lazy"
+                                        />
+
+                                        <div className="absolute inset-0 bg-linear-to-t from-[#050914]/50 via-transparent to-transparent" />
+                                        <div className="absolute bottom-4 left-4">
+                                            <span className="rounded-full border border-white/20 bg-[#050914]/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
+                                                My University
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    <div className="relative border-l border-white/10 pl-8">
+
                                         <div className="absolute -left-1.25 top-1 h-2.5 w-2.5 rounded-full bg-purple-400 shadow-lg shadow-purple-500/30" />
                                         <p className="text-sm font-medium text-purple-400">
                                             {item.duration}
                                         </p>
 
-                                        <h4 className="mt-2 text-lg font-semibold text-white">
+                                        <h4 className="mt-2 text-lg font-semibold leading-snug text-white sm:text-xl">
                                             {item.degree}
                                         </h4>
 
-                                        <p className="mt-1 text-sm font-medium text-slate-300">
+                                        <p className="mt-2 text-base font-medium text-purple-300">
                                             {item.institution}
                                         </p>
 
-                                        <p className="mt-3 text-sm leading-6 text-slate-400">
+                                        <p className="mt-5 text-base leading-8 text-slate-400 sm:text-[17px]">
                                             {item.description}
                                         </p>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
                         <Experience />
                     </div>
